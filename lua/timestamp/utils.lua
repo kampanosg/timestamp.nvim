@@ -27,4 +27,12 @@ function utils.get_visual_selection_coords()
     }
 end
 
+function utils.get_text(coords)
+    return vim.api.nvim_buf_get_text(0,
+        coords.start_row,
+        coords.start_col,
+        coords.end_row,
+        coords.end_col, {})
+end
+
 return utils

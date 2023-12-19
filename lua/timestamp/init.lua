@@ -12,16 +12,10 @@ M.convert = function ()
         return
     end
 
-    local opts = {}
     local visual_coords = utils.get_visual_selection_coords()
-
     P(visual_coords)
 
-    local text = vim.api.nvim_buf_get_text(0,
-        visual_coords.start_row,
-        visual_coords.start_col,
-        visual_coords.end_row,
-        visual_coords.end_col, opts)
+    local text = utils.get_text(visual_coords)
     P(text)
 
     return mode
