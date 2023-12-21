@@ -8,20 +8,23 @@ M.setup = function (opts)
     for k, v in pairs(opts) do M[k] = v end
 end
 
-M.convert = function ()
+M.generate_formatted_static_timestamp = function ()
     local mode = vim.api.nvim_get_mode().mode
     if mode ~= 'v' then
-        print('Please select a date first')
+        print('Please select text in visual mode')
         return
     end
 
     local visual_coords = utils.get_visual_selection_coords()
-    P(visual_coords)
 
-    local text = utils.get_text(visual_coords)
-    P(text)
+    local format = utils.get_text(visual_coords)
+    if table.getn(format) == 0 then
+        print('Please select text in visual mode')
+        return
+    end
 
-    return mode
+    local timestamp = M.current_time(format[1])
+    vim.api.nvim_buf_set_text(0, visual_coords.start_row, visual_coords.start_col, visual_coords.end_row, visual_coords.end_col, {timestamp})
 end
 
 M.generate_static_timestamp = function ()
