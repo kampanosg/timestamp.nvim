@@ -8,7 +8,7 @@ M.setup = function (opts)
     for k, v in pairs(opts) do M[k] = v end
 end
 
-M.generate_formatted_static_timestamp = function ()
+M.gen_static_fts = function ()
     local mode = vim.api.nvim_get_mode().mode
     if mode ~= 'v' then
         print('Please select text in visual mode')
@@ -27,7 +27,7 @@ M.generate_formatted_static_timestamp = function ()
     utils.set_text(visual_coords, {timestamp})
 end
 
-M.generate_formatted_current_timestamp = function ()
+M.gen_fts = function ()
     local mode = vim.api.nvim_get_mode().mode
     if mode ~= 'v' then
         print('Please select text in visual mode')
@@ -46,12 +46,12 @@ M.generate_formatted_current_timestamp = function ()
     utils.set_text(visual_coords, {timestamp})
 end
 
-M.generate_static_timestamp = function ()
+M.gen_static_ts = function ()
     local timestamp = M.current_time(M.format)
     vim.api.nvim_put({timestamp}, 'c', true, true)
 end
 
-M.generate_current_timestamp = function ()
+M.gen_ts = function ()
     local timestamp = os.date(M.format)
     vim.api.nvim_put({timestamp}, 'c', true, true)
 end

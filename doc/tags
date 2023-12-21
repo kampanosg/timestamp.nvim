@@ -1,0 +1,6 @@
+timestamp.gen_fts()	timestamp.txt	/*timestamp.gen_fts()*
+timestamp.gen_static_fts()	timestamp.txt	/*timestamp.gen_static_fts()*
+timestamp.gen_static_ts()	timestamp.txt	/*timestamp.gen_static_ts()*
+timestamp.gen_ts()	timestamp.txt	/*timestamp.gen_ts()*
+timestamp.nvim	timestamp.txt	/*timestamp.nvim*
+timstamp.setup()	timestamp.txt	/*timstamp.setup()*

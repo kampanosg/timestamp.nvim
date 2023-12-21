@@ -1,0 +1,55 @@
+============================================================================
+                                                              *timestamp.nvim*
+This plugin helps you to generate static and current timestamps. You can use
+the default format or define your own. Additionally, the plugin can read a
+lua-supported datetime format and generate a timestamp based on that.
+
+
+                                                            *timstamp.setup()*
+timestamp.setup({opts}) 
+    Setup function to be run by user. Configures the defaults of timestamp.
+
+    Usage: >
+    require('timestamp').setup({
+        current_time = os.date,
+        format = '%Y-%m-%dT%H:%M:%S',
+    })
+<
+
+
+                                                   *timestamp.gen_static_ts()*
+timestamp.gen_static_ts()
+    Writes a static datetime in the buffer using the specified format. Both
+    datetime and format are defined during the setup.
+
+    Usage:
+    |require('timestamp').gen_static_fts()|
+
+
+                                                          *timestamp.gen_ts()*
+timestamp.gen_ts()
+    Writes the current datetime in the buffer using the specified format. 
+    The format is defined during the setup.
+
+    Usage:
+    |require('timestamp').gen_fts()|
+
+
+                                                  *timestamp.gen_static_fts()*
+timestamp.gen_static_fts()
+    Allows the user to select a lua-supported datetime format and writes to
+    the buffer the timestamp, specified during the setup, based on the 
+    selected format.
+
+    Note: It replaces the visual selection with the timestamp
+
+
+                                                         *timestamp.gen_fts()*
+timestamp.gen_fts()
+    Allows the user to select a lua-supported datetime format and writes to
+    the buffer the current timestamp based on the selected format.
+
+    Note: It replaces the visual selection with the timestamp
+
+ 
+ vim:tw=78:ts=8:ft=help:norl:
