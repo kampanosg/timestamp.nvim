@@ -18,13 +18,13 @@ M.generate_formatted_static_timestamp = function ()
     local visual_coords = utils.get_visual_selection_coords()
 
     local format = utils.get_text(visual_coords)
-    if table.getn(format) == 0 then
+    if #format == 0 then
         print('Please select text in visual mode')
         return
     end
 
     local timestamp = M.current_time(format[1])
-    vim.api.nvim_buf_set_text(0, visual_coords.start_row, visual_coords.start_col, visual_coords.end_row, visual_coords.end_col, {timestamp})
+    utils.set_text(visual_coords, {timestamp})
 end
 
 M.generate_static_timestamp = function ()

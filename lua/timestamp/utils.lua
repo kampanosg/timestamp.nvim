@@ -35,4 +35,13 @@ function utils.get_text(coords)
         coords.end_col, {})
 end
 
+function utils.set_text(coords, text)
+    vim.api.nvim_buf_set_text(0,
+        coords.start_row,
+        coords.start_col,
+        coords.end_row,
+        coords.end_col,
+        text)
+end
+
 return utils
