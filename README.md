@@ -1,4 +1,4 @@
-# ⏰ timestamp.nvim
+# ⏳ timestamp.nvim
 
 A Neovim plugin that helps you generate fixed and current timestamps. You can use the default format or define your own. Additionally, the plugin can read a lua-supported datetime format and generate a timestamp based on that.
 
