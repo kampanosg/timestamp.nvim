@@ -84,7 +84,7 @@ The table below, lists the available formats that the plugin accepts. For a more
 | `%X`   | time (e.g., `23:48:10`)                    |
 | `%Y`   | full year (`1998`)                         |
 | `%y`   | two-digit year (`98`) [00-99]              |
-| `%%`   | the character \``%`´                       |
+| `%%`   | the character `%`                          |
 
 ## Documentation
 
