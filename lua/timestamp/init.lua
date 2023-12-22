@@ -1,6 +1,13 @@
 local utils = require('timestamp.utils')
 local M = {
-    current_time = os.date,
+    fixed_time = os.time {
+        year = 2023,
+        month = 12,
+        day = 1,
+        hour = 9,
+        min = 30,
+        sec = 0,
+    },
     format = '%Y-%m-%dT%H:%M:%S',
 }
 
@@ -8,7 +15,7 @@ M.setup = function (opts)
     for k, v in pairs(opts) do M[k] = v end
 end
 
-M.gen_static_fts = function ()
+M.gen_fixed_fts = function ()
     local mode = vim.api.nvim_get_mode().mode
     if mode ~= 'v' then
         print('Please select text in visual mode')
@@ -23,7 +30,7 @@ M.gen_static_fts = function ()
         return
     end
 
-    local timestamp = M.current_time(format[1])
+    local timestamp = os.date(format[1], M.fixed_time)
     utils.set_text(visual_coords, {timestamp})
 end
 
@@ -46,8 +53,8 @@ M.gen_fts = function ()
     utils.set_text(visual_coords, {timestamp})
 end
 
-M.gen_static_ts = function ()
-    local timestamp = M.current_time(M.format)
+M.gen_fixed_ts = function ()
+    local timestamp = os.date(M.format, M.fixed_time)
     vim.api.nvim_put({timestamp}, 'c', true, true)
 end
 
